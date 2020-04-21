@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t mksmanjit/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run mksmanjit/docker-react npm run test -- --coverage
